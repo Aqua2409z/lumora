@@ -1,0 +1,15 @@
+{
+  "name": "lumora-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev:customer": "pnpm --filter @lumora/customer-portal dev",
+    "dev:operations": "pnpm --filter @lumora/operations-portal dev",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "build": "pnpm -r --if-present build"
+  }
+}

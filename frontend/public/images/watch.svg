@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="wbg" cx="42%" cy="38%" r="80%">
+      <stop offset="0%" stop-color="#d8c6a6"/>
+      <stop offset="100%" stop-color="#b49d78"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="340" fill="url(#wbg)"/>
+  <g fill="none" stroke="#3b2f22" stroke-opacity="0.75" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="200" cy="170" r="72"/>
+    <circle cx="200" cy="170" r="60" stroke-opacity="0.4"/>
+    <path d="M200 135v35l24 14"/>
+    <path d="M180 100l6-26h28l6 26M180 240l6 26h28l6-26"/>
+  </g>
+  <text x="200" y="312" text-anchor="middle" font-family="'Patrick Hand',cursive" font-size="20" fill="#3b2f22" fill-opacity="0.7">Đồng hồ cơ</text>
+</svg>

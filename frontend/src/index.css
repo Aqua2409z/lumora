@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* Cho phép cuộn dọc (trang landing dài), nhưng ẩn thanh cuộn.
+     Trang login/home tự cố định bằng h-screen + overflow-hidden của riêng chúng. */
+  -ms-overflow-style: none;  /* IE, Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+body {
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  background: #efe7da;
+  color: #171717;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  /* Dải gradient vàng gold dùng cho chữ (background-clip: text) */
+  .text-gold-grad {
+    background: linear-gradient(
+      135deg,
+      #8c6a2b 0%,
+      #e9cf84 18.57%,
+      #fff3c8 31.43%,
+      #d4af37 42.86%,
+      #a67c2e 57.14%,
+      #ebd08a 71.43%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Dải gradient vàng gold dùng cho nền / hình khối */
+  .bg-gold-grad {
+    background: linear-gradient(
+      135deg,
+      #8c6a2b 0%,
+      #e9cf84 18.57%,
+      #fff3c8 31.43%,
+      #d4af37 42.86%,
+      #a67c2e 57.14%,
+      #ebd08a 71.43%
+    );
+  }
+}

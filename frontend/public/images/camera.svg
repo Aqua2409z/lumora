@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="cbg" cx="45%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#34302e"/>
+      <stop offset="100%" stop-color="#121010"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="340" fill="url(#cbg)"/>
+  <g fill="none" stroke="#cfc6bb" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="96" y="128" width="208" height="128" rx="16"/>
+    <path d="M150 128l14-22h72l14 22"/>
+    <circle cx="200" cy="192" r="46"/>
+    <circle cx="200" cy="192" r="30" stroke-opacity="0.5"/>
+    <rect x="268" y="146" width="22" height="12" rx="3"/>
+  </g>
+  <text x="200" y="312" text-anchor="middle" font-family="'Patrick Hand',cursive" font-size="20" fill="#cfc6bb" fill-opacity="0.75">Máy ảnh &amp; ống kính</text>
+</svg>

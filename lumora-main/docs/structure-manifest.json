@@ -1,0 +1,6012 @@
+[
+  {
+    "path": "backend",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/pom.xml",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/Dockerfile",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/NexusApplication.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/common",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/common/Money.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/common/DbClock.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/common/ApiError.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/common/GlobalExceptionHandler.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/common/JobLock.java",
+    "directory": false,
+    "note": "khóa để job chỉ chạy 1 lần khi có nhiều instance"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/security",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/security/SecurityConfig.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/security/ObjectAccessGuard.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/security/FieldCrypto.java",
+    "directory": false,
+    "note": "băm HMAC + mã hóa cột nhạy cảm: số CCCD, địa chỉ, serial (BR-C50)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/messaging",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/messaging/IdempotencyFilter.java",
+    "directory": false,
+    "note": "bảng idempotency_records"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/messaging/OutboxPublisher.java",
+    "directory": false,
+    "note": "bảng outbox_events"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/messaging/InboxDeduplicator.java",
+    "directory": false,
+    "note": "bảng processed_events"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/messaging/RabbitConfig.java",
+    "directory": false,
+    "note": "tùy chọn: pilot 1 instance chưa cần (mục H)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/messaging/OutboxRelayJob.java",
+    "directory": false,
+    "note": "đọc outbox_events sau commit, gọi listener; chống trùng bằng processed_events"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/document",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/document/DocumentStorageService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/document/Document.java",
+    "directory": false,
+    "note": "entity bảng documents"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/carrier",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/carrier/CarrierClient.java",
+    "directory": false,
+    "note": "interface: báo giá, tạo vận đơn, tra hành trình"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/carrier/HttpCarrierClient.java",
+    "directory": false,
+    "note": "adapter cho hãng được chọn (GHN/GHTK/Viettel Post – TBD)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/carrier/CarrierWebhookController.java",
+    "directory": false,
+    "note": "POST /carrier/webhooks/{carrier}: kiểm chữ ký, chống trùng"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/carrier/CarrierStatusChanged.java",
+    "directory": false,
+    "note": "event: mã hãng, mã vận đơn, trạng thái, thời điểm"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/port",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/port/AuditTrail.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/port/AcknowledgmentPort.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/platform/port/OpenCasePort.java",
+    "directory": false,
+    "note": "dispute hiện thực; fulfillment/completion hỏi vụ việc đang mở"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/controller/AuthController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/service/AuthService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/service/LoginLockService.java",
+    "directory": false,
+    "note": "BR-N03: sai 5 lần khóa 15 phút"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/dto/AuthRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/dto/AuthResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/entity/SecurityCredential.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/entity/UserSession.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/repository/SecurityCredentialRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/auth/repository/UserSessionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/controller/AccountController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/service/AccountService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/dto/AccountRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/dto/AccountResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/entity/User.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/entity/Party.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/entity/Address.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/repository/UserRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/repository/PartyRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/account/repository/AddressRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/controller/IdentityController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/controller/KycReviewController.java",
+    "directory": false,
+    "note": "A2c: hàng chờ NEEDS_REVIEW và quyết định Đạt / Yêu cầu làm lại / Không đạt; vai trò INTAKE_OFFICER"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/service/IdentityService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/service/KycReviewService.java",
+    "directory": false,
+    "note": "chỉ cho Đạt khi liveness đạt, thẻ còn hạn, CCCD chưa gắn tài khoản khác; ghi reviewed_by, reviewed_at và audit"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/dto/IdentityRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/dto/IdentityResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/entity/IdentityCheck.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/entity/BankAccount.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/entity/CitizenIdVerification.java",
+    "directory": false,
+    "note": "bảng citizen_id_verifications (BR-N01)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/repository/IdentityCheckRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/repository/BankAccountRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/repository/CitizenIdVerificationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/client",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/identity/client/EkycProviderClient.java",
+    "directory": false,
+    "note": "nhà cung cấp eKYC: chụp thẻ + khuôn mặt, đọc chip, VNeID (TBD)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/controller/StaffAccessController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/service/StaffAccessService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/dto/StaffAccessRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/dto/StaffAccessResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/entity/Role.java",
+    "directory": false,
+    "note": "15 vai trò theo seed v4"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/entity/UserRole.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/repository/RoleRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/staffaccess/repository/UserRoleRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/iam/api/IamApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/controller/PolicyController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/service/PolicyService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/dto/PolicyRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/dto/PolicyResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/entity/PolicyVersion.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/policy/repository/PolicyVersionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/controller/DataRequestController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/service/DataRequestService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/dto/DataRequestRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/dto/DataRequestResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/entity/DataRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/entity/RetentionRule.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/repository/DataRequestRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/repository/RetentionRuleRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/job/DataRequestDeadlineJob.java",
+    "directory": false,
+    "note": "BR-N34: hạn phản hồi 2 ngày làm việc, hoàn tất 10/20 ngày"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/datarequest/job/RetentionJob.java",
+    "directory": false,
+    "note": "BR-C53: xóa/ẩn danh theo retention_rules, bỏ qua legal hold"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit/controller/AuditController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit/service/AuditService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit/entity/AuditEvent.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/audit/repository/AuditEventRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/acknowledgment",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/acknowledgment/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/acknowledgment/service/AcknowledgmentService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/acknowledgment/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/acknowledgment/entity/Acknowledgment.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/acknowledgment/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/acknowledgment/repository/AcknowledgmentRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/controller/NotificationController.java",
+    "directory": false,
+    "note": "hộp thư và cài đặt kênh (C4i)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/service/NotificationService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/dto/NotificationPreferenceRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/entity/NotificationDelivery.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/entity/NotificationPreference.java",
+    "directory": false,
+    "note": "bảng notification_preferences (BR-N32)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/repository/NotificationDeliveryRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/repository/NotificationPreferenceRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/notification/job/NotificationJob.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/operations",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/operations/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/operations/controller/OperationsController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/operations/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/operations/service/OperationsService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/api/GovernanceApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/api/PolicyParams.java",
+    "directory": false,
+    "note": "đọc tham số đã chốt trong policy_versions"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/governance/event/GovernanceEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/controller/CategoryController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/service/CategoryService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/dto/CategoryRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/dto/CategoryResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/entity/Category.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/entity/ProductModel.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/repository/CategoryRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/master/repository/ProductModelRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/controller/CategoryPolicyController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/service/CategoryPolicyService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/dto/CategoryPolicyRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/dto/CategoryPolicyResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/entity/CategoryPolicy.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/policy/repository/CategoryPolicyRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/controller/FulfillmentProfileController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/service/FulfillmentProfileService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/dto/FulfillmentProfileRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/dto/FulfillmentProfileResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/entity/FulfillmentProfile.java",
+    "directory": false,
+    "note": "pilot: PARCEL, ONSITE (BR-N36)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/profile/repository/FulfillmentProfileRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/enablement",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/enablement/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/enablement/controller/CategoryEnablementController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/enablement/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/enablement/service/CategoryEnablementService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/taxonomy/api/TaxonomyApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/service/ItemService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/entity/Item.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/entity/ItemIdentifier.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/entity/OwnershipEvent.java",
+    "directory": false,
+    "note": "chuyển từ consignment/authority"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/repository/ItemRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/repository/ItemIdentifierRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/item/repository/OwnershipEventRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/commitment",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/commitment/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/commitment/service/ItemCommitmentService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/commitment/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/commitment/entity/ItemCommitment.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/commitment/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/commitment/repository/ItemCommitmentRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/hold",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/hold/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/hold/service/ItemHoldService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/hold/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/hold/entity/ItemHold.java",
+    "directory": false,
+    "note": "scope: SALE, HANDOVER, PAYOUT, LEGAL"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/hold/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/hold/repository/ItemHoldRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/controller/AssetDetailController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/service/AssetDetailService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/dto/AssetDetailRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/dto/AssetDetailResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity/AssetDetailRevision.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity/MovableDetail.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity/RealEstateDetail.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity/VehicleDetail.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity/EventOffering.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity/ServiceOffering.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity/DigitalRightDetail.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/entity/AssetRightHolder.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/repository/AssetDetailRevisionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/repository/MovableDetailRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/detail/repository/RealEstateDetailRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot",
+    "directory": true,
+    "note": "ngoài pilot (BR-C71): pilot coi một bộ hàng là một món"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/controller/SaleLotController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/service/SaleLotService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/dto/SaleLotRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/dto/SaleLotResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/entity/SaleLotComponent.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/lot/repository/SaleLotComponentRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity",
+    "directory": true,
+    "note": "ngoài pilot; bảng ở nexus_giai_doan_2.sql"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/service/CapacityService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/entity/CapacityPool.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/entity/CapacityReservation.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/entity/ComponentAllocation.java",
+    "directory": false,
+    "note": "ngoài pilot (BR-C71)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/entity/LotCapacityRequirement.java",
+    "directory": false,
+    "note": "ngoài pilot, chuyển từ asset/lot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/repository/CapacityPoolRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/repository/CapacityReservationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/repository/ComponentAllocationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/repository/LotCapacityRequirementRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/capacity/job/CapacityJob.java",
+    "directory": false,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/api/AssetApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/asset/event/AssetEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/controller/ConsignmentRequestController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/service/ConsignmentRequestService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/dto/ConsignmentRequestRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/dto/ConsignmentRequestResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/entity/ConsignmentRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/entity/RequestItem.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/entity/RequestDocument.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/repository/ConsignmentRequestRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/repository/RequestItemRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/repository/RequestDocumentRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/request/job/ConsignmentDeadlineJob.java",
+    "directory": false,
+    "note": "BR-N05 hạn bổ sung 10 ngày; BR-N06 đóng hồ sơ bị từ chối sau 3 ngày"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/controller/AuthorityReviewController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/service/AuthorityReviewService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/dto/AuthorityReviewRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/dto/AuthorityReviewResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/entity/AuthorityReview.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/authority/repository/AuthorityReviewRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/controller/AgreementController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/service/AgreementService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/dto/AgreementRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/dto/AgreementResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/entity/Agreement.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/entity/AgreementVersion.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/entity/AgreementItem.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/repository/AgreementRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/repository/AgreementVersionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/agreement/repository/AgreementItemRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/controller/WithdrawalController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/service/WithdrawalService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/dto/CreateWithdrawalRequest.java",
+    "directory": false,
+    "note": "đổi tên: trùng tên entity WithdrawalRequest"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/dto/WithdrawalResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/entity/WithdrawalRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/withdrawal/repository/WithdrawalRequestRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge",
+    "directory": true,
+    "note": "phí thu của chủ hàng khi không bán được (BR-C06, N07, N08)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/controller/ConsignorChargeController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/service/ConsignorChargeService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/dto/ConsignorChargeResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/entity/ConsignorCharge.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/charge/repository/ConsignorChargeRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/api/ConsignmentApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/listener",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/listener/CarrierStatusListener.java",
+    "directory": false,
+    "note": "cập nhật intake_carrier_* và return_carrier_*"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/consignment/event/ConsignmentEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/controller/CustodyController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/service/CustodyService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/dto/CustodyRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/dto/CustodyResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/entity/Location.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/entity/CustodyEvent.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/repository/LocationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/custody/repository/CustodyEventRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/controller/InspectionController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/service/InspectionService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/dto/InspectionRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/dto/InspectionResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/entity/InspectionCase.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/entity/InspectionReport.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/repository/InspectionCaseRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/inspection/repository/InspectionReportRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification",
+    "directory": true,
+    "note": "A074, A075, A080, A082, A086 ngoài pilot; bảng verification_reviews vẫn dùng"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/controller/VerificationController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/service/VerificationService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/dto/VerificationRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/dto/VerificationResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/entity/VerificationReview.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/verification/repository/VerificationReviewRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/api/InspectioncustodyApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/inspectioncustody/event/InspectioncustodyEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/controller/ListingController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/service/ListingService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/dto/ListingRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/dto/ListingResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/entity/Listing.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/entity/ListingRevision.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/entity/ListingVerification.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/repository/ListingRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/repository/ListingRevisionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/listing/repository/ListingVerificationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/search",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/search/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/search/controller/ListingSearchController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/search/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/search/service/ListingSearchService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist",
+    "directory": true,
+    "note": "BR-N33"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist/controller/WatchlistController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist/service/WatchlistService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist/entity/WatchlistItem.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/watchlist/repository/WatchlistItemRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/api/CatalogApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/catalog/event/CatalogEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/controller/CartController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/service/CartService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/dto/CartRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/dto/CartResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/entity/Cart.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/entity/CartItem.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/repository/CartRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/cart/repository/CartItemRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/controller/CheckoutController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/service/CheckoutService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/dto/CheckoutRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/dto/CheckoutResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/entity/Checkout.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/repository/CheckoutRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/checkout/job/CheckoutJob.java",
+    "directory": false,
+    "note": "BR-N12: nhả hàng sau 15 phút"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/controller/OrderController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/service/OrderService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/dto/OrderRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/dto/OrderResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/entity/Order.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/entity/OrderLine.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/entity/OrderCharge.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/repository/OrderRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/repository/OrderLineRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/order/repository/OrderChargeRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/overdue",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/overdue/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/overdue/service/OverduePaymentService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/overdue/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/overdue/job/OverduePaymentJob.java",
+    "directory": false,
+    "note": "BR-N21, N22: hủy quá hạn, gia hạn tối đa 24 giờ khi đang đối soát"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/api/CommerceApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/commerce/event/CommerceEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/controller/AuctionRuleController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/service/AuctionRuleService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/dto/AuctionRuleRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/dto/AuctionRuleResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/entity/AuctionRuleVersion.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/rule/repository/AuctionRuleVersionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/controller/AuctionScheduleController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/service/AuctionScheduleService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/dto/AuctionScheduleRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/dto/AuctionScheduleResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/entity/Auction.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/repository/AuctionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/schedule/job/AuctionScheduleJob.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/controller/ParticipationController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/service/ParticipationService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/dto/ParticipationRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/dto/ParticipationResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/entity/AuctionParticipant.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/entity/BiddingRestriction.java",
+    "directory": false,
+    "note": "BR-N20"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/repository/AuctionParticipantRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/participation/repository/BiddingRestrictionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/controller/BiddingController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/service/BiddingService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/dto/BiddingRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/dto/BiddingResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/entity/Bid.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/entity/BidInvalidation.java",
+    "directory": false,
+    "note": "BR-N18"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/repository/BidRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/repository/BidInvalidationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/realtime",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/bidding/realtime/BiddingGateway.java",
+    "directory": false,
+    "note": "STOMP /topic/auctions/{id}; chỉ đẩy sau khi ghi DB"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/controller/AuctionResultController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/service/AuctionResultService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/dto/AuctionResultRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/dto/AuctionResultResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/entity/AuctionResult.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/repository/AuctionResultRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/result/job/AuctionCloseJob.java",
+    "directory": false,
+    "note": "BR-N16: chờ 3 phút, đếm 3 × 5 giây, đóng đúng giờ"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/incident",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/incident/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/incident/controller/AuctionIncidentController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/incident/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/incident/service/AuctionIncidentService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/api/AuctionApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/auction/event/AuctionEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan",
+    "directory": true,
+    "note": "A089 hàng cồng kềnh ngoài pilot; pilot chỉ PARCEL, ONSITE"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/controller/FulfillmentPlanController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/service/FulfillmentPlanService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/dto/FulfillmentPlanRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/dto/FulfillmentPlanResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/entity/FulfillmentCase.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/entity/FulfillmentMilestone.java",
+    "directory": false,
+    "note": "giai đoạn 2: mốc giao ở cột carrier_* của FulfillmentCase"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/entity/FulfillmentEvidence.java",
+    "directory": false,
+    "note": "giai đoạn 2: mốc giao ở cột carrier_* của FulfillmentCase"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/repository/FulfillmentCaseRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/repository/FulfillmentMilestoneRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/plan/repository/FulfillmentEvidenceRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery",
+    "directory": true,
+    "note": "giao hàng qua API hãng, thay inspectioncustody/shipment"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/controller/DeliveryController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/service/DeliveryService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/dto/CarrierOrderRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/dto/DeliveryResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/listener",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/listener/CarrierStatusListener.java",
+    "directory": false,
+    "note": "A059: cập nhật fulfillment_cases.carrier_*"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/delivery/job/CarrierNoUpdateAlertJob.java",
+    "directory": false,
+    "note": "BR-N25: quá 3 ngày chưa giao thì cảnh báo"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover",
+    "directory": true,
+    "note": "pilot: nhận tại kho, giao tại chỗ; A079 ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/controller/HandoverController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/service/HandoverService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/dto/HandoverRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/dto/HandoverResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/entity/HandoverAppointment.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/entity/HandoverRecord.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/repository/HandoverAppointmentRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/handover/repository/HandoverRecordRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer",
+    "directory": true,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/controller/TransferCaseController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/service/TransferCaseService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/dto/TransferCaseRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/dto/TransferCaseResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/entity/TransferCase.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/transfer/repository/TransferCaseRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement",
+    "directory": true,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/controller/EntitlementController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/service/EntitlementService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/dto/EntitlementRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/dto/EntitlementResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/entity/Entitlement.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/entity/EntitlementEvent.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/repository/EntitlementRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/repository/EntitlementEventRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/entitlement/job/EntitlementJob.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking",
+    "directory": true,
+    "note": "ngoài pilot; đổi tên từ service/"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/controller/ServiceBookingController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/service/ServiceBookingService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/dto/ServiceBookingRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/dto/ServiceBookingResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/entity/ServiceBooking.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/entity/ServiceAcceptance.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/repository/ServiceBookingRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/servicebooking/repository/ServiceAcceptanceRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/completion",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/completion/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/completion/service/CompletionService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/completion/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/completion/job/ComplaintWindowJob.java",
+    "directory": false,
+    "note": "BR-N26: hết 7 ngày không có vụ việc thì hoàn tất"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/api/FulfillmentApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/fulfillment/event/FulfillmentEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/controller/PaymentController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/service/PaymentService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/dto/PaymentRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/dto/PaymentResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/entity/PaymentAttempt.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/entity/ProviderEvent.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/repository/PaymentAttemptRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/repository/ProviderEventRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/webhook",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payment/webhook/PaymentWebhookController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/service/LedgerService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/entity/LedgerAccount.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/entity/LedgerTransaction.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/entity/LedgerEntry.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/repository/LedgerAccountRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/repository/LedgerTransactionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/ledger/repository/LedgerEntryRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation",
+    "directory": true,
+    "note": "ngoài pilot (BR-N27: không trả theo đợt)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/controller/PaymentObligationController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/service/PaymentObligationService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/dto/PaymentObligationRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/dto/PaymentObligationResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/entity/PaymentObligation.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/entity/ObligationPaymentAllocation.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/repository/PaymentObligationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/obligation/repository/ObligationPaymentAllocationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/controller/RefundController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/service/RefundService.java",
+    "directory": false,
+    "note": "Finance Maker lập, Finance Checker duyệt (BR-N28)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/dto/RefundRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/dto/RefundResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/entity/Refund.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/refund/repository/RefundRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/controller/SettlementController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/service/SettlementService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/dto/SettlementRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/dto/SettlementResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/entity/Settlement.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/entity/SettlementLine.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/repository/SettlementRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/settlement/repository/SettlementLineRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/controller/PayoutController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/service/PayoutService.java",
+    "directory": false,
+    "note": "Finance Maker lập, Finance Checker duyệt (BR-N28)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/dto/PayoutRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/dto/PayoutResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/entity/Payout.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/payout/repository/PayoutRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/controller/ReconciliationController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/service/ReconciliationService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/dto/ReconciliationRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/dto/ReconciliationResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/entity/ReconciliationItem.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/reconciliation/repository/ReconciliationItemRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/controller/RecoveryController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/service/RecoveryService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/dto/RecoveryRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/dto/RecoveryResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/entity/RecoveryClaim.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/recovery/repository/RecoveryClaimRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/taxdocument",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/taxdocument/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/taxdocument/controller/TaxDocumentController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/taxdocument/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/taxdocument/service/TaxDocumentService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/api/FinanceApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/finance/event/FinanceEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/controller/DisputeCaseController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/service/DisputeCaseService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/dto/DisputeCaseRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/dto/DisputeCaseResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/entity/DisputeCase.java",
+    "directory": false,
+    "note": "7 loại vụ việc (BR-N29)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/entity/CaseEvidence.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/repository/DisputeCaseRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/repository/CaseEvidenceRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/job",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/casemgmt/job/CaseSlaJob.java",
+    "directory": false,
+    "note": "BR-N10: cảnh báo vụ việc quá hạn"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/controller/CaseDecisionController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/service/CaseDecisionService.java",
+    "directory": false,
+    "note": "Trưởng ca duyệt, khác người đề xuất (BR-N28)"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/dto/CaseDecisionRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/dto/CaseDecisionResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/entity/CaseDecision.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/decision/repository/CaseDecisionRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns",
+    "directory": true,
+    "note": "đổi tên: return là từ khóa Java"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/controller/ReturnAuthorizationController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/service/ReturnAuthorizationService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/dto",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/dto/ReturnAuthorizationRequest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/dto/ReturnAuthorizationResponse.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/entity",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/entity/ReturnAuthorization.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/repository",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/repository/ReturnAuthorizationRepository.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/listener",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/returns/listener/ReturnCarrierListener.java",
+    "directory": false,
+    "note": "cập nhật return_carrier_*"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/remediation",
+    "directory": true,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/remediation/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/remediation/controller/RemediationController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/remediation/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/remediation/service/RemediationService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/api/DisputeApi.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/event",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/dispute/event/DisputeEvents.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/consignorview",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/consignorview/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/consignorview/controller/ConsignorViewController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/consignorview/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/consignorview/service/ConsignorViewService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/ops",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/ops/controller",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/ops/controller/OpsReportController.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/ops/service",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/reporting/ops/service/OpsReportService.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/config",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/config/JpaConfig.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/config/SchedulingConfig.java",
+    "directory": false,
+    "note": "bật @Scheduled cho các job"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/config/RedisConfig.java",
+    "directory": false,
+    "note": "tùy chọn: chỉ khi chạy nhiều instance"
+  },
+  {
+    "path": "backend/src/main/java/com/nexus/config/WebSocketConfig.java",
+    "directory": false,
+    "note": "STOMP, endpoint /ws"
+  },
+  {
+    "path": "backend/src/main/resources",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/resources/application.yml",
+    "directory": false,
+    "note": "jpa.hibernate.ddl-auto: validate; flyway.enabled: true"
+  },
+  {
+    "path": "backend/src/main/resources/db",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/resources/db/migration",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/main/resources/db/migration/V1__schema_v4.sql",
+    "directory": false,
+    "note": "nguyên văn nexus_schema_v4.sql"
+  },
+  {
+    "path": "backend/src/main/resources/db/migration/V2__seed_v4.sql",
+    "directory": false,
+    "note": "nguyên văn nexus_seed_v4.sql"
+  },
+  {
+    "path": "backend/src/test",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/asset",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/asset/CommitmentConcurrencyTest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/auction",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/auction/BidConcurrencyTest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/auction/AuctionCloseJobTest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/finance",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/finance/LedgerInvariantTest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/platform",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/platform/CarrierWebhookIdempotencyTest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/architecture",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/architecture/ModuleDependencyTest.java",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "backend/src/test/java/com/nexus/architecture/SchemaValidationTest.java",
+    "directory": false,
+    "note": "Testcontainers PostgreSQL + Flyway V1, V2 + Hibernate validate"
+  },
+  {
+    "path": "frontend",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/.nvmrc",
+    "directory": false,
+    "note": "phiên bản Node.js LTS cả nhóm dùng"
+  },
+  {
+    "path": "frontend/package.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/pnpm-workspace.yaml",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/tsconfig.base.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/package.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/app",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/app/App.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/app/routes.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/app/RouteGuard.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/app/providers.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth",
+    "directory": true,
+    "note": "Đăng nhập, Đăng ký (Người 1); khóa đăng nhập BR-N03"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/pages/AuthPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/components/AuthPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/api/authApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/schemas/authSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auth/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc",
+    "directory": true,
+    "note": "Xác minh danh tính + CCCD (Người 1); BR-N01"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/pages/KycPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/components/CitizenIdCapture.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/api/kycApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/schemas/kycSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/kyc/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog",
+    "directory": true,
+    "note": "Trang chủ, Catalog (Người 1); M1 Chi tiết mua ngay"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/pages/CatalogPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/components/CatalogPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/api/catalogApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/hooks",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/hooks/useCatalog.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/catalog/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/watchlist",
+    "directory": true,
+    "note": "C4c; BR-N33"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/watchlist/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/watchlist/pages/WatchlistPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/watchlist/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/watchlist/components/WatchButton.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/watchlist/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/watchlist/api/watchlistApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/watchlist/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account",
+    "directory": true,
+    "note": "C4a Hồ sơ, tài khoản nhận tiền"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/pages/AccountPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/components/AccountPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/api/accountApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/schemas/accountSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/account/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment",
+    "directory": true,
+    "note": "C5-1…C5-5, C4e, C4f, C4g, C4h"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/pages/ConsignmentPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/components/ConsignmentPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/api/consignmentApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/schemas/consignmentSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/hooks",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/hooks/useConsignment.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/consignment/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout",
+    "directory": true,
+    "note": "M2 Giỏ hàng, M3 Checkout giữ hàng 15 phút"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/pages/CheckoutPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/components/CheckoutPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/api/checkoutApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/hooks",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/hooks/useCheckout.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/checkout/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/orders",
+    "directory": true,
+    "note": "C3b, C4d: theo dõi vận đơn, xác nhận nhận hàng, khiếu nại 7 ngày"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/orders/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/orders/pages/OrdersPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/orders/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/orders/components/OrdersPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/orders/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/orders/api/ordersApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/orders/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/payments",
+    "directory": true,
+    "note": "C3a Thanh toán"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/payments/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/payments/pages/PaymentsPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/payments/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/payments/components/PaymentsPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/payments/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/payments/api/paymentsApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/payments/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions",
+    "directory": true,
+    "note": "C1, C2, P1–P4, C4b Lịch sử đặt giá"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/pages/AuctionsPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/pages/MyBidsPage.tsx",
+    "directory": false,
+    "note": "C4b"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/components/AuctionsPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/api/auctionsApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/hooks",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/hooks/useAuctions.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/realtime",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/realtime/useLiveAuction.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/auctions/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/notifications",
+    "directory": true,
+    "note": "C4i hộp thư và cài đặt kênh; BR-N32"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/notifications/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/notifications/pages/NotificationsPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/notifications/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/notifications/components/PreferenceMatrix.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/notifications/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/notifications/api/notificationsApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/notifications/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy",
+    "directory": true,
+    "note": "C4j yêu cầu dữ liệu cá nhân; BR-N34"
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/pages/DataRequestPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/components/DataRequestForm.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/api/privacyApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/schemas/dataRequestSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/features/privacy/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/src/main.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/index.html",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/customer-portal/.env.example",
+    "directory": false,
+    "note": "VITE_API_BASE_URL"
+  },
+  {
+    "path": "frontend/apps/customer-portal/vite.config.ts",
+    "directory": false,
+    "note": "dev: proxy /api và /ws sang Spring Boot :8080"
+  },
+  {
+    "path": "frontend/apps/operations-portal",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/package.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/app",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/app/App.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/app/routes.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/app/RouteGuard.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/app/providers.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auth",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auth/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auth/pages/AuthPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auth/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auth/components/AuthPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auth/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auth/api/authApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auth/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin",
+    "directory": true,
+    "note": "A2a Khách hàng, A2b Nhân viên & phân quyền, A2c Duyệt KYC cần xét tay"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin/pages/IamAdminPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin/pages/KycReviewPage.tsx",
+    "directory": false,
+    "note": "A2c: hàng chờ CCCD cần xét tay, chi tiết và quyết định"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin/components/IamAdminPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin/api/iamadminApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/iam-admin/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake",
+    "directory": true,
+    "note": "A3a, A3b"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/pages/IntakePage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/components/IntakePanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/api/intakeApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/schemas/intakeSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/intake/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse",
+    "directory": true,
+    "note": "chưa có màn trên canvas: nhận hàng, vị trí, tạo vận đơn qua hãng"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/pages/WarehousePage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/components/WarehousePanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/api/warehouseApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/schemas/warehouseSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/warehouse/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection",
+    "directory": true,
+    "note": "chưa có màn trên canvas"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/pages/InspectionPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/components/InspectionPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/api/inspectionApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/schemas/inspectionSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/inspection/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification",
+    "directory": true,
+    "note": "ngoài pilot"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/pages/VerificationPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/components/VerificationPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/api/verificationApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/schemas/verificationSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/verification/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing",
+    "directory": true,
+    "note": "A4a Soạn, A4b Duyệt & công bố"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/pages/ListingPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/components/ListingPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/api/listingApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/schemas/listingSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/listing/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy",
+    "directory": true,
+    "note": "chưa có màn trên canvas"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/pages/TaxonomyPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/components/TaxonomyPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/api/taxonomyApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/schemas/taxonomySchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/taxonomy/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops",
+    "directory": true,
+    "note": "A4c Quản lý phiên"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/pages/AuctionOpsPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/components/AuctionOpsPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/api/auctionopsApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/hooks",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/hooks/useAuctionOps.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/auction-ops/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/orders",
+    "directory": true,
+    "note": "A5a Giao dịch"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/orders/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/orders/pages/OrdersPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/orders/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/orders/components/OrdersPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/orders/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/orders/api/ordersApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/orders/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance",
+    "directory": true,
+    "note": "A5a tab Chi tiền chủ hàng, hoàn tiền; Maker/Checker BR-N28"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/pages/FinancePage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/components/FinancePanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/api/financeApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/schemas/financeSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/finance/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover",
+    "directory": true,
+    "note": "pilot: nhận tại kho; phần đất, xe, vé, dịch vụ ngoài pilot"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/pages/HandoverPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/components/HandoverPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/api/handoverApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/schemas",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/schemas/handoverSchema.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/handover/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/disputes",
+    "directory": true,
+    "note": "A5b Vụ việc & hoàn tiền"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/disputes/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/disputes/pages/DisputesPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/disputes/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/disputes/components/DisputesPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/disputes/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/disputes/api/disputesApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/disputes/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/governance",
+    "directory": true,
+    "note": "tham số, yêu cầu dữ liệu phía nhân viên"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/governance/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/governance/pages/GovernancePage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/governance/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/governance/components/GovernancePanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/governance/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/governance/api/governanceApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/governance/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/reporting",
+    "directory": true,
+    "note": "A1 Bảng điều khiển"
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/reporting/pages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/reporting/pages/ReportingPage.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/reporting/components",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/reporting/components/ReportingPanel.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/reporting/api",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/reporting/api/reportingApi.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/features/reporting/index.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/src/main.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/index.html",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/apps/operations-portal/.env.example",
+    "directory": false,
+    "note": "VITE_API_BASE_URL"
+  },
+  {
+    "path": "frontend/apps/operations-portal/vite.config.ts",
+    "directory": false,
+    "note": "dev: proxy /api và /ws sang Spring Boot :8080"
+  },
+  {
+    "path": "frontend/packages",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/ui",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/ui/package.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/ui/Button.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/ui/DataTable.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/ui/MoneyText.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/ui/Countdown.tsx",
+    "directory": false,
+    "note": "đếm giờ giữ hàng 15 phút, nhịp đóng phiên"
+  },
+  {
+    "path": "frontend/packages/ui/StatusBadge.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/ui/FileUpload.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/api-client",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/api-client/package.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/api-client/httpClient.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/api-client/idempotency.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/api-client/errorMapper.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/auth",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/auth/package.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/auth/sessionStore.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/auth/permissions.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/auth/MfaPrompt.tsx",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/realtime",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/realtime/package.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/realtime/wsClient.ts",
+    "directory": false,
+    "note": "STOMP client"
+  },
+  {
+    "path": "frontend/packages/utils",
+    "directory": true,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/utils/package.json",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/utils/formatVnd.ts",
+    "directory": false,
+    "note": ""
+  },
+  {
+    "path": "frontend/packages/utils/formatDate.ts",
+    "directory": false,
+    "note": ""
+  }
+]

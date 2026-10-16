@@ -1,0 +1,33 @@
+# ============================================================
+#  Lumora — .gitignore
+# ============================================================
+
+# ---------- Backend (Maven / Spring Boot) -------------------
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+
+# ---------- Frontend (Node / Vite) --------------------------
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ---------- Biến môi trường (KHÔNG commit secrets) ----------
+# .env chứa Client ID Google — không nhạy cảm lắm nhưng cẩn thận hơn thì bỏ
+# frontend/.env
+
+# ---------- Figma temp / Claude Code (dữ liệu nội bộ) ------
+.figma-tmp/
+.claude/
+
+# ---------- Google OAuth client secret (KHÔNG commit) -------
+client_secret*.json
+
+# ---------- IDE / OS ----------------------------------------
+.idea/
+.vscode/settings.json
+*.iml
+.DS_Store
+Thumbs.db

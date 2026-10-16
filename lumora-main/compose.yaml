@@ -1,0 +1,84 @@
+name: lumora-v4
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-Lumora}
+      POSTGRES_USER: ${POSTGRES_USER:-nexus}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run sh scripts/setup-env.sh first}
+      TZ: Asia/Ho_Chi_Minh
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5544}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-Lumora}
+      DB_USER: ${POSTGRES_USER:-nexus}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "127.0.0.1:${BACKEND_PORT:-8080}:8080"
+    depends_on:
+      db: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 60s
+    restart: unless-stopped
+
+  customer-portal:
+    build:
+      context: ./frontend
+      args: {APP: customer-portal}
+    ports:
+      - "127.0.0.1:${CUSTOMER_PORT:-5173}:8080"
+    depends_on:
+      backend: {condition: service_healthy}
+    restart: unless-stopped
+
+  operations-portal:
+    build:
+      context: ./frontend
+      args: {APP: operations-portal}
+    ports:
+      - "127.0.0.1:${OPERATIONS_PORT:-5174}:8080"
+    depends_on:
+      backend: {condition: service_healthy}
+    restart: unless-stopped
+
+  redis:
+    profiles: [messaging]
+    image: redis:7.4-alpine
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Run sh scripts/setup-env.sh first}
+    command: ["sh", "-c", "exec redis-server --appendonly yes --requirepass \"$$REDIS_PASSWORD\""]
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  rabbitmq:
+    profiles: [messaging]
+    image: rabbitmq:4.1-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-lumora}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:?Run sh scripts/setup-env.sh first}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:
